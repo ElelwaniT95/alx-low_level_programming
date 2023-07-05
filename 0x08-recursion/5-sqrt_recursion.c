@@ -6,7 +6,7 @@
  *
  * Return: The square root of the number, or -1 if there's no square root
  */
-int power_operation(int n, int c)
+int _sqrt_recursion(int n)
 {
 	if (c % (n / c) == 0)
 	{
