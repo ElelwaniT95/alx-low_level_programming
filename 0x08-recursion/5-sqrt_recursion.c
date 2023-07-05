@@ -8,6 +8,8 @@
  */
 int _sqrt_recursion(int n)
 {
+	int start, end, result;
+
 	if (n < 0)
 	{
 		return (-1);
@@ -16,10 +18,9 @@ int _sqrt_recursion(int n)
 	{
 		return (n);
 	}
-
-	int start = 1;
-	int end = n;
-	int result = -1;
+	start = 1;
+	end = n;
+	result = -1;
 
 	while (start <= end)
 	{
@@ -40,13 +41,4 @@ int _sqrt_recursion(int n)
 		}
 	}
 	return (result);
-}
-
-int main(void)
-{
-	int num = 25;
-	int sqrt = _sqrt_recursion(num);
-
-	printf("Square root of %d is %d\n", num, sqrt);
-	return (0);
 }
