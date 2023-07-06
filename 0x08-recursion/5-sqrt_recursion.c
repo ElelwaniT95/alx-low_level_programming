@@ -1,44 +1,35 @@
-#include <stdio.h>
+#include "main.h"
 
+int helper_function(int x, int y);
 /**
- * _sqrt_recursion - Calculates the natural square root of a number
- * @n: The number for which the square root is to be calculated
- *
- * Return: The square root of the number, or -1 if there's no square root
+ * _sqrt_recursion - find natural square root of a number
+ * @n: Integer to check
+ * Return: natural square root or -1
  */
 int _sqrt_recursion(int n)
 {
-	int start, end, result;
+	return (helper_function(1, n));
 
-	if (n < 0)
+}
+
+/**
+ * helper_function - help to find if there is a root number
+ * @x: Incremental value to reach the square root
+ * @y: value of n
+ * Return: Root or -1
+ */
+int helper_function(int x, int y)
+{
+	if (y == x * x)
+	{
+		return (x);
+	}
+	else if (y < x * x)
 	{
 		return (-1);
 	}
-	if (n == 0 || n == 1)
+	else
 	{
-		return (n);
+		return (helper_function(x + 1, y));
 	}
-	start = 1;
-	end = n;
-	result = -1;
-
-	while (start <= end)
-	{
-		int mid = (start + end) / 2;
-
-		if (mid * mid == n)
-		{
-			return (mid);
-		}
-		else if (mid * mid < n)
-		{
-			start = mid + 1;
-			result = mid;
-		}
-		else
-		{
-			end = mid - 1;
-		}
-	}
-	return (result);
 }
